@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Unknown</string>
+	<key>Buffer Order</key>
+	<array>
+		<string>Levels</string>
+		<string>Solutions</string>
+		<string>ABCMusic</string>
+		<string>ABCMusicData</string>
+		<string>Sounds</string>
+		<string>Music</string>
+		<string>Table</string>
+		<string>Stack</string>
+		<string>Events</string>
+		<string>ShakeDetector</string>
+		<string>Tweener</string>
+		<string>PositionObj</string>
+		<string>RectObj</string>
+		<string>SpriteObj</string>
+		<string>ShadowObj</string>
+		<string>Button</string>
+		<string>Panel</string>
+		<string>ScrollingTexture</string>
+		<string>Smoke</string>
+		<string>StageWall</string>
+		<string>Crate</string>
+		<string>Claw</string>
+		<string>Pile</string>
+		<string>BaseStage</string>
+		<string>Stage</string>
+		<string>StagePhysics</string>
+		<string>Command</string>
+		<string>Register</string>
+		<string>Goal</string>
+		<string>Program</string>
+		<string>Toolbox</string>
+		<string>Popover</string>
+		<string>Screen</string>
+		<string>Level</string>
+		<string>Tutorial</string>
+		<string>BaseSelect</string>
+		<string>PackSelect</string>
+		<string>LevelSelect</string>
+		<string>WinScreen</string>
+		<string>StartScreen</string>
+		<string>CreditsScreen</string>
+		<string>TransitionScreen</string>
+		<string>HowScreen</string>
+		<string>SplashScreen</string>
+		<string>IO</string>
+		<string>Main</string>
+		<string>Notes</string>
+	</array>
+	<key>Created</key>
+	<string>2012-02-11 02:01:16 +0000</string>
+	<key>Description</key>
+	<string>No description available</string>
+</dict>
+</plist>
