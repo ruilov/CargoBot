@@ -4,7 +4,7 @@ HowScreen = class(Screen)
 
 function HowScreen:init(oldScreen)
     Screen.init(self)
-    
+
     -- background
     local obj = Button(0,0,WIDTH,HEIGHT)
     self:doDraw(obj,"Cargo Bot:Opening Background",-1)
@@ -12,7 +12,7 @@ function HowScreen:init(oldScreen)
         transitionScreen:start(self,oldScreen)
         currentScreen = transitionScreen
     end
-    
+
     -- codea logo
     local obj = Button((WIDTH - 405)/2,HEIGHT - 170,405,132)
     self:doDraw(obj,"Cargo Bot:Codea Logo")
@@ -45,17 +45,17 @@ function HowScreen:init(oldScreen)
     -- tap here for more
     local moreSprite = "moreCodea"
     local w,h = Screen.makeTextSprite(moreSprite,"Tap Here for more information about Codea™",
-        {fontSize=25,fill=color(236, 229, 229, 128),font="MyriadPro-Bold"})
+        {fontSize=25,fill=color(236, 229, 229, 128),font="HelveticaNeue-Bold"})
     local obj = Button((WIDTH - w)/2,270-h,w,h)
     self:doDraw(obj,moreSprite)
     obj.onEnded = function(obj,t)
-        openURL( "http://twolivesleft.com/Codea" )
+        openURL( "itms-apps://itunes.com/apps/Codea" )
     end
     obj:setExtras({left=20,right=20,top=20,bottom=20})
     
     local backSprite = "hereback"
     local w,h = Screen.makeTextSprite(backSprite,"Tap Here to go Back",
-        {fontSize=25,fill=color(198, 155, 155, 128),font="MyriadPro-Bold"})
+        {fontSize=25,fill=color(198, 155, 155, 128),font="HelveticaNeue-Bold"})
     local obj = SpriteObj((WIDTH - w)/2,180-h,w,h)
     self:doDraw(obj,backSprite)
 end
