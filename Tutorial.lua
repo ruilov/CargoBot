@@ -225,7 +225,7 @@ function Level:tutorial5_5()
     -- create the popover
     local popover = Popover(255,702,405,85)
     popover:arrow("right",25)
-    popover:setText("This is the step buttom. Press it to execute a single instruction.",25)
+    popover:setText("This is the step button. Press it to execute a single instruction.",25)
     popover:show()
     Events.unbindEvent("won")
     --Events.bind("hint_hide",self,self.cleanPopovers)

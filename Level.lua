@@ -135,7 +135,7 @@ function Level:init(levelData)
     local hintB = Button(658,970,100,50)
     self:doDraw(hintB,"Cargo Bot:Hints Button")
     hintB.onEnded = function(but,t)
-        print("TEST")
+        Events.trigger("play",false)
         if #self.popovers == 0 then
             local popover = Popover(0,0,0,0)
             popover:setText(levelData.hint,25)
@@ -288,6 +288,7 @@ end
 function Level:wonCallback()
     self.animating = false
     self.wonIt = true
+    self.active = false
     sounds:play("success")
     
     -- stary background

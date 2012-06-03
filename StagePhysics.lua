@@ -91,6 +91,10 @@ function Stage:collide(contact)
     
     local infoa = self.bodies[a]
     local infob = self.bodies[b]
+    
+    -- this shouldnt be needed either but alas
+    if infoa == nil or infob == nil then return nil end
+    
     if a.type ~= STATIC or b.type ~= STATIC then
         local normal = contact.normalImpulse
         if normal > 0 then
