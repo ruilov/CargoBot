@@ -24,7 +24,7 @@
 -- drawing that doesn't respond to any type of event ever doesn't necessarily have to be
 -- add()'ed to the screen (but I guess no harm if it was added)
 
--- The leaves of the panel hierarchy are SpriteObjs. SpriteObjs are first created which
+-- The leaves of the panel hierarchy are SpriteObjs. SpriteObjs are first created with
 -- just their coordinates but as soon as they are added to a screen with doDraw, they become
 -- part of that screen and will contain references to the meshes of that screen. From then on
 -- we can set properties of SpriteObjs like position, tint, size and this will automatically
@@ -34,7 +34,7 @@
 -- Two important subclasses of SpriteObj: Button and ShadowObj
 -- Button is a SpriteObj that knows how to handle touches. Touches on a screen (or panels more
 -- generally) are passed on to its elems, which can implement the touched method themselves.
--- Buttons do that - its touched metho checks if
+-- Buttons do that - its touched method checks if
 -- the touch happened within the boundaries of the button, and forwards the touch to one of
 -- its virtual methods: onBegan, onMoving, onEnded.
 
