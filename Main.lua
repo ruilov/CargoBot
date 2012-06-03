@@ -26,7 +26,7 @@ function draw()
     
     if not currentScreen then
         currentScreen = SplashScreen()
-        --currentScreen = Level(levels[38])
+        --currentScreen = Level(levels[35])
         --currentScreen:addTutorial()
         currentScreen:bind()
         transitionScreen = TransitionScreen() -- global variable
