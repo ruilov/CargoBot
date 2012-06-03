@@ -1,5 +1,6 @@
 --ABCMusic class by Fred Bogg
--- v 0.4.2.1 beta
+-- v 0.4.2.2 beta
+-- optimised cache size
 
 ABCMusic = class()
       
@@ -947,7 +948,7 @@ function ABCMusic:adjustSoundBufferSize()
     
     -- extend the cache if getting full
     if used > (sb * 0.9) then
-        soundBufferSize(sb + 20)
+        soundBufferSize(sb + (sb * 0.1))
     end
     
 end
