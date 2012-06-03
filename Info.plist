@@ -22,6 +22,7 @@
 		<string>SpriteObj</string>
 		<string>ShadowObj</string>
 		<string>Button</string>
+		<string>Textbox</string>
 		<string>Panel</string>
 		<string>ScrollingTexture</string>
 		<string>Smoke</string>
@@ -41,10 +42,14 @@
 		<string>Screen</string>
 		<string>Level</string>
 		<string>Tutorial</string>
+		<string>BaseMenuScreen</string>
 		<string>BaseSelect</string>
 		<string>PackSelect</string>
 		<string>LevelSelect</string>
 		<string>WinScreen</string>
+		<string>EditorScreen</string>
+		<string>SettingsScreen</string>
+		<string>MenuScreen</string>
 		<string>StartScreen</string>
 		<string>CreditsScreen</string>
 		<string>TransitionScreen</string>

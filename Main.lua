@@ -1,11 +1,13 @@
 -- Main.lua
 supportedOrientations(PORTRAIT_ANY)
-DEV_MODE = false
+DEV_MODE = true
 NO_MUSIC = false
 
 function setup()
+    IO.init()
     --IO.clearAll()
     --IO.printSolution("Mirror 3")
+    
     displayMode(FULLSCREEN)
     if not DEV_MODE then displayMode(FULLSCREEN_NO_BUTTONS) end
     watch("dt")
@@ -13,6 +15,7 @@ function setup()
     
     sounds = Sounds()
     checkLevelOrder()
+    if IO.readMusicState() == false then GLOBAL_MUTE = true end    
 end
 
 function draw()
@@ -25,19 +28,21 @@ function draw()
     background()
     
     if not currentScreen then
-        currentScreen = SplashScreen()
-        --currentScreen = Level(levels[38])
+        currentScreen = MenuScreen()
+        --currentScreen = SplashScreen()
+        --currentScreen = Level(levels[39])
         --currentScreen:addTutorial()
+        
         currentScreen:bind()
         transitionScreen = TransitionScreen() -- global variable
     end
-    
+
     currentScreen:draw()
     currentScreen:tick()
     Tweener.run()
     --ShakeDetector.check() -- do we want to keep this?
 
-    if currentMusic then currentMusic:play() end
+    if currentMusic and not GLOBAL_MUTE then currentMusic:play() end
 end
 
 function touched(t)
@@ -46,6 +51,10 @@ end
 
 function collide(contact)
     if currentScreen and currentScreen.collide then currentScreen:collide(contact) end
+end
+
+function keyboard(key)
+    if currentScreen and currentScreen.keyboard then currentScreen:keyboard(key) end
 end
 
 function printout(msg,x,y)

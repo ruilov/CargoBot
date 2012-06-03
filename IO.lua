@@ -3,6 +3,14 @@
 
 IO = class()
 
+-- init loads the user array to know who the default user is for figuring out
+-- solution file names
+function IO.init()
+    -- the file names for the default user don't append the username to their name
+    DEFAULT_USER = "Player 1"
+    CURRENT_USER = IO.loadCurrentUser()
+end
+
 function IO.clearAll()
     clearLocalData()
 end
@@ -13,6 +21,7 @@ function IO.printAllSolutions()
     end
 end
 
+-- prints the solution for level = namae
 function IO.printSolution(name)
     local sol = IO.readSolution(name)
     if sol then
@@ -23,7 +32,11 @@ end
     
 -- where we store the user solutions
 function IO.solutionName(levelName)
-    return "level"..levelName.."solution"
+    if CURRENT_USER == DEFAULT_USER then 
+        return "level"..levelName.."solution"
+    else 
+        return CURRENT_USER.."level"..levelName.."solution"
+    end    
 end
 
 function IO.saveSolution(levelName,solutionStr)
@@ -38,7 +51,11 @@ end
 
 -- where we store the max number of stars earned for this level
 function IO.topScoreFilename(levelName)
-    return "level"..levelName.."topScore"
+    if CURRENT_USER == DEFAULT_USER then 
+        return "level"..levelName.."topScore"
+    else 
+        return CURRENT_USER.."level"..levelName.."topScore"
+    end
 end
 
 -- loads the maximum number of stars that we've earned for this level
@@ -59,6 +76,7 @@ function IO.saveScore(score,levelName)
     end
 end
 
+-- total score for this level pack
 function IO.packScore(packName)
     local score = 0
     for _,pack in ipairs(packs) do
@@ -78,4 +96,38 @@ function IO.totalScore()
         score = score + math.min(IO.levelTopScore(levelData.name),3)
     end
     return score
+end
+
+-- functions to deal with the music setting
+function IO.storeMusicState(onOff)  -- on is true, off is false
+    saveLocalData("musicSetting",onOff)
+end
+
+function IO.readMusicState()
+    return readLocalData("musicSetting")
+end
+
+-- functions to deal with profiles
+function IO.loadProfileName(profileIndex)
+    local name = readLocalData("profileName"..profileIndex)
+    if name == nil then name = "Player " .. profileIndex end
+    return name
+end
+
+function IO.saveProfileName(profileIndex,profileName)
+    saveLocalData("profileName"..profileIndex,profileName)
+end
+
+function IO.loadCurrentUser()
+    local currentUser = readLocalData("currentUser")
+    if currentUser == nil then
+        currentUser = DEFAULT_USER
+        saveLocalData("currentUser",currentUser)
+    end
+    return currentUser
+end
+
+function IO.saveCurrentUser(profileIndex)
+    CURRENT_USER = "Player "..profileIndex
+    saveLocalData("currentUser", CURRENT_USER)
 end

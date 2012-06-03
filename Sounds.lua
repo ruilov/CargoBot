@@ -55,6 +55,8 @@ end
 -- claw_sideways
 -- claw_down
 function Sounds:play(type,duration)
+    if GLOBAL_MUTE then return nil end
+    
     -- play the right length sound for going down
    if type == "claw_down" then
         local soundLength = math.floor(duration*10)
@@ -67,6 +69,8 @@ end
 
 -- types are: "crate", "claw", "base", "wall", "ground"
 function Sounds:collide(typea,typeb,contact)
+    if GLOBAL_MUTE then return nil end
+    
     if contact.state == BEGAN then
         if contact.normalImpulse > 2 then
             if typea == "claw" or typeb == "claw" then

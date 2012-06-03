@@ -28,9 +28,8 @@ function PackSelect:update()
     self:doDraw(arrow,"Cargo Bot:How Arrow")
     self:add(arrow)
     arrow.onEnded = function(obj,t)
-        transitionScreen:start(self,StartScreen())
+        transitionScreen:start(self,MenuScreen())
         currentScreen = transitionScreen
-        --Events.trigger("levelSelect",self,true)
     end
     
     -- back

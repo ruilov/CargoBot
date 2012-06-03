@@ -20,8 +20,10 @@ function StartScreen:init()
     self:doDraw(background,"Cargo Bot:Opening Background",-2)
     background.onEnded = function(obj,t) 
         self:stopPhysics()
-        local packSelect = PackSelect()
-        transitionScreen:start(self,packSelect)
+        --local packSelect = PackSelect()
+        --transitionScreen:start(self,packSelect)
+        local menuScreen = MenuScreen()
+        transitionScreen:start(self,menuScreen)
         currentScreen = transitionScreen
     end
     
